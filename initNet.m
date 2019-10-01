@@ -70,7 +70,7 @@ layers = [
     
     convolution2dLayer(1,2,'Name','classifier')
     softmaxLayer('Name','softmax')
-    pixelClassificationLayer('Name','classOutput','Classes',classNames,'ClassWeights',classWeights)];
+    pixelClassificationLayer('Name','classOutput','ClassWeights',classWeights)];
 
 net = layerGraph(layers);
 
