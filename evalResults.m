@@ -1,4 +1,4 @@
-function [dices,tprs,fdrs] = evalResults(predfolder,truthfolder,dist,ProbParam)
+function [dices,tprs,fdrs] = evalResults(predfolder,dist,ProbParam)
 % EVALRESULTS Evaluates metrics of cone location accuracy.
 %   [DICES, TPRS, FDRS] = EVALRESULTS(FOLDER, DIST, PROBPARAM) calculates
 %   dice overlaps DICES, true positive rates TPRS, and false detection
@@ -6,7 +6,7 @@ function [dices,tprs,fdrs] = evalResults(predfolder,truthfolder,dist,ProbParam)
 %   DIST using parameters PROBPARAM.
 
 % Get all probability maps within folder
-files = dir([folder '/pred*']);
+files = dir([predfolder '/*.mat']);
 
 thresh = 0.5;
 
@@ -16,7 +16,7 @@ fdrs = zeros(length(files),1);
 dices = zeros(length(files),1);
 
 for n = 1:length(files)
-    load([files(n).folder '\' files(n).name],'pred')
+    load([files(n).folder '\' files(n).name],'pred','truth')
     
     [CNNPos] = ProbabilityMap_ConeLocations(pred,ProbParam);
     pred = zeros(size(pred));

@@ -1,6 +1,6 @@
 function [sigma,pmthresh,extmaxh] = optimiseResults(folder,dist)
 
-files = dir([folder '/pred*.mat']);
+files = dir([folder '/*.mat']);
 
 thresh = 0.5;
 tprs = zeros(20,11,9,3,length(files));

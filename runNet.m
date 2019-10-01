@@ -11,16 +11,16 @@ mkdir([savefolder '\train'])
 mkdir([savefolder '\test'])
 
 imds = imageDatastore([datafolder '\train\imgs']);
-pxds = pixelLabelDatastore([datafolder '\train\truths'],["background","cone"],[1 2]);
+pxds = pixelLabelDatastore([datafolder '\train\truth'],["background","cone"],[1 2]);
 pximds = pixelLabelImageDatastore(imds,pxds);
 
-net = init_mat_net(pximds);
+net = initNet(pximds);
 
 trainedNet = trainNetwork(pximds,net,trainingOptions('sgdm','Shuffle','every-epoch','Plots','training-progress','MaxEpochs',50,'Verbose',false));
 
 save([savefolder '\net.mat'],'trainedNet')
 
-generateProbabilityMaps(trainedNet,[savefolder '\train'],[datafolder '\train\imgs'])
+generateProbabilityMaps(trainedNet,[savefolder '\train'],[datafolder '\train'])
 
 [sigma, pmthresh, maxexth] = optimiseResults([savefolder '\train'],6);
 
@@ -29,7 +29,7 @@ ProbParam.PMthresh = pmthresh;
 ProbParam.ExtMaxH = maxexth;
 save([savefolder  '\optima.mat'],'ProbParam')
 
-generateProbabilityMaps(trainedNet,[savefolder '\test'],[datafolder '\test\imgs'])
+generateProbabilityMaps(trainedNet,[savefolder '\test'],[datafolder '\test'])
 
 [dices,tprs,fdrs] = evalResults([savefolder '\test'],6,ProbParam);
 
