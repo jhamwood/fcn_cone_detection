@@ -69,8 +69,14 @@ layers = [
     reluLayer('Name','relu_1_2u')
     
     convolution2dLayer(1,2,'Name','classifier')
-    softmaxLayer('Name','softmax')
-    pixelClassificationLayer('Name','classOutput','ClassWeights',classWeights)];
+    softmaxLayer('Name','softmax')];
+
+try
+    layers = [layers; pixelClassificationLayer('Name','classOutput','Classes',classNames,'ClassWeights',classWeights)];
+catch
+    layers = [layers; pixelClassificationLayer('Name','classOutput','ClassNames',classNames,'ClassWeights',classWeights)];
+end
+    
 
 net = layerGraph(layers);
 
