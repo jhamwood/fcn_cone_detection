@@ -8,4 +8,10 @@ The models presented here were trained on freely available data from David Cunef
 
 # Instructions
 
-A "main" function is provided to run a sample network. This function will prompt for the location of the "Confocal" and "Split Detectors" folders from Cunefare et al.'s project.
+Download the zip from https://github.com/DavidCunefare/CNN-Cone-Detection and unzip it to any place on your computer.
+
+Run the file CNN-Cone-Detection/Code/Reassemble_IMDBs.m from Cunefare et al. in MATLAB.
+
+Run the file main.m from this project in MATLAB. It will prompt for a folder containing the raw data. Navigate to CNN-Cone-Detection\Images and Results\Confocal for confocal or CNN-Cone-Detection\Images and Results\Split Detector for split detector.
+
+The main.m file will train and evaluate a network on this data.
