@@ -12,6 +12,6 @@ Download the zip from https://github.com/DavidCunefare/CNN-Cone-Detection and un
 
 Run the file CNN-Cone-Detection/Code/Reassemble_IMDBs.m from Cunefare et al. in MATLAB.
 
-Run the file main.m from this project in MATLAB. It will prompt for a folder containing the raw data. Navigate to CNN-Cone-Detection\Images and Results\Confocal for confocal or CNN-Cone-Detection\Images and Results\Split Detector for split detector.
+Run the file main.m from this project in MATLAB. It will prompt for a folder containing the raw data. Navigate to CNN-Cone-Detection\Images and Results.
 
 The main.m file will train and evaluate a network on this data.

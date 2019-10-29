@@ -16,7 +16,7 @@ pximds = pixelLabelImageDatastore(imds,pxds);
 
 net = initNet(pximds);
 
-trainedNet = trainNetwork(pximds,net,trainingOptions('sgdm','Shuffle','every-epoch','Plots','training-progress','MaxEpochs',50,'Verbose',false,'MiniBatchSize',20));
+trainedNet = trainNetwork(pximds,net,trainingOptions('sgdm','Shuffle','every-epoch','Plots','training-progress','MaxEpochs',50,'Verbose',1,'VerboseFrequency',1,'MiniBatchSize',20));
 
 save([savefolder '\net.mat'],'trainedNet')
 

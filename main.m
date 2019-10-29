@@ -10,6 +10,8 @@
 % this code. The data can be found at
 % https://github.com/DavidCunefare/CNN-Cone-Detection.
 
-createData;
+if ~exist('data/confocal/mat/0wide/train/imgs','dir')
+    createData;
+end
 
 runNet('data/confocal/mat/0wide','exps/test_0')
