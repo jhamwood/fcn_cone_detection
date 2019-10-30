@@ -14,4 +14,7 @@ if ~exist('data/confocal/mat/0wide/train/imgs','dir')
     createData;
 end
 
+% Example for Split detector (2 wide)
+%runNet('data/confocal/mat/0wide','exps/test_0')
+
 runNet('data/confocal/mat/0wide','exps/test_0')

@@ -1,8 +1,11 @@
 function generateProbabilityMaps(trainedNet,savefolder,datafolder)
+disp(['Generating probability maps at ' savefolder '.'])
+
 %mkdir(savefolder)
 files = dir([datafolder '\imgs']);
 files = files(3:end);
 for n = 1:length(files)
+    disp(['Generated map ' num2str(n) ' of ' num2str(length(files)) ' maps.'])
     img = imread([datafolder '\imgs\' files(n).name]);
     [~,~,allscores] = semanticseg(img,trainedNet);
     raw = img;

@@ -5,6 +5,8 @@ function [dices,tprs,fdrs] = evalResults(predfolder,dist,ProbParam)
 %   rates FDRS on all probability maps in FOLDER, with a maximum matching
 %   DIST using parameters PROBPARAM.
 
+disp(['Evaluating performance on ' predfolder '.'])
+
 % Get all probability maps within folder
 files = dir([predfolder '/*.mat']);
 
